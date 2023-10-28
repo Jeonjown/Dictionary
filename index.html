@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="column-1">
+                <div class="logo">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+            </div>
+            <div class="column-2">
+                <select id="select-font" name="select-font">
+                    <option value="serif">Serif</option>
+                    <option value="roboto">Roboto</option>
+                  </select>
+                  <div class="dark-mode">
+                      <label class="switch">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                      </label>
+                      <div class="moon-icon">
+                          <i class="fa-regular fa-moon"></i>
+                      </div>
+                  </div>
+            </div>         
+        </div> 
+
+        <main class="main-content">
+            <div class="searchbar">
+                <input type="text" name="searchbar" id="searchbar">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            </div>
+
+            <div class="word-container">
+                <div class="word-wrapper">
+                    <!-- <div class="word">keyboard</div> -->
+                    <!-- <div class="phonetic">/ˈkiːbɔːd/</div> -->
+                </div>
+                <div class="audio-icon">
+                    <i class="fa-solid fa-play"></i>
+                </div>      
+            </div>
+
+           <div class="part-of-speech noun">
+                <!-- noun -->
+            </div> 
+
+            <div class="definition-container">
+                <ul> Meaning
+                   <li>
+                    A component of many instruments including the piano, organ, and harpsichord consisting of usually black and white keys that cause different tones to be produced when struck.
+                    </li> 
+                    <li>
+                    A device with keys of a musical keyboard, used to control electronic sound-producing devices which may be built into or separate from the keyboard device.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="synonyms-container"> 
+                <ul class="synonyms">Synonyms
+                    <li>
+                        electronic keyboard
+                    </li>
+                </ul>
+                
+             </div>
+
+             <div class="part-of-speech verb">
+                verb
+            </div>
+
+            <div class="definition-container">
+                <ul> Meaning
+                   <li>
+                   To type on a computer keyboard.
+                    </li> 
+                </ul>
+
+                <ul class="examples"> 
+                    <li>
+                        "Keyboarding is the part of this job I hate the most.""
+                    </li>
+                </ul>
+            </div>
+
+          <div class="source">
+            <p>Source:</p>
+            <div class="link">
+                "https://en.wiktionary.org/wiki/keyboard"
+            </div>
+           </div> 
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

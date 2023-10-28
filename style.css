@@ -1,0 +1,267 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    min-width: 40em;
+    max-width: 45em;
+    
+   
+}
+
+
+/* HEADER */
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2em;
+    width: 100%;
+
+}
+
+.logo{
+    margin-right: 1em;
+    font-size: 2em;
+    color: gray;
+}
+
+
+
+.column-2{
+    display: flex;
+}
+
+#select-font{
+    width: 5.5em;
+    border: none;
+    font-size: 1.2rem;
+   
+}
+
+#select-font:focus {
+    outline: none;
+  }
+
+.dark-mode{
+    display: flex;
+    margin-left: 3em;
+}
+
+/* switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 1.8em;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1em;
+    width:  1em;
+    left: 4px;
+    bottom: 7px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(1.5em);
+    -ms-transform: translateX(1em);
+    transform: translateX(2em);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+  /* moon-icon */
+  .moon-icon{
+    margin-left: .5em;
+    font-size: 1.7em;
+    color: gray;
+  }
+
+
+  /* MAIN */
+
+  main{
+    width: 100%;
+    margin-top: 2em;
+  }
+
+  .searchbar{
+    background-color: rgb(250, 244, 236);
+    display: flex;
+    align-items: center;
+  }
+
+  .searchbar input[type="text"]{
+    padding: 1em;
+    width: 100%;
+    background-color: rgb(250, 244, 236);
+    outline: none;
+    border: none;
+    height: 2.5em;
+  }
+
+  .search-icon{
+    background-color: rgb(250, 244, 236);
+    padding: 1em;
+  }
+
+  .search-icon:hover{
+    cursor: pointer;
+    opacity: .5;
+  }
+
+  .search-icon:active{
+    cursor: pointer;
+    opacity: .3;
+  }
+
+  .word-container{
+    margin-top: 3em;
+    display: flex;
+  }
+
+  .word{
+    font-size: 4rem;
+    font-weight: bold;
+  }
+
+  .phonetic{
+    color: rgb(106, 106, 252);
+    font-size: 1.5rem;
+  }
+
+  .audio-icon{
+    margin-top: .8em;
+    margin-left: auto;
+    background-color: rgb(178, 233, 252);
+    border-radius: 50%;
+    height: 4em;
+    width: 4em;
+    padding: .5em;
+  }
+
+  .audio-icon i{
+    margin-top: .25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #2196F3;
+  }
+
+  .part-of-speech{
+    margin-top: 2em;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .definition-container{
+    margin-top: 2em;
+  }
+
+  .definition-container ul{
+    font-size: 1.2rem;
+    color: rgb(165, 164, 164);
+  }
+
+  .definition-container li{
+    font-size: 1rem;
+    color: black;
+    margin: 1em 2em;
+  }
+
+  .definition-container li::marker {
+    color: #2196F3; 
+  }
+
+  .synonyms-container{
+    display: flex;
+   
+  }
+  .synonyms-container ul{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    font-size: 1.2rem;
+    color: rgb(165, 164, 164);
+  }
+
+  .synonyms-container li{
+     margin-top: .1em;
+    list-style-type: none;
+    font-size: 1rem;
+    color: black;
+  }
+
+  .synonyms li{
+    color: #2196F3;
+    font-weight: bold;
+  }
+
+  .examples  li{
+   margin-top: .1em;
+   list-style-type: none;
+   font-size: 1rem;
+   color: rgb(165, 164, 164);
+ }
+
+ .source{
+    margin-top: 3em;
+    display: flex;
+    color: rgb(165, 164, 164);
+ }
+
+ .link {
+    margin-left: .5em;
+ }
