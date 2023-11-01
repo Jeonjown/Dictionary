@@ -40,11 +40,9 @@ function fetchApi(userInput) {
         })
         .then(data => {
             // Log the data to the console
-            renderData(data);
-        })
-        .catch(error => {
-            console.error('Error fetching data: ' + error);
+            renderData(data[0]);
         });
+
 
 }
 
@@ -58,41 +56,81 @@ function renderWordContainer(data) {
 
     //word-div
     const wordDiv = document.createElement('div');
-    wordDiv.textContent = data[0].word;
+    wordDiv.textContent = data.word;
     wordDiv.classList.add('word');
     wordWrapper.append(wordDiv);
 
     //phonetic-div
     const phoneticDiv = document.createElement('div');
-    phoneticDiv.textContent = data[0].phonetic;
+    phoneticDiv.textContent = data.phonetic;
     phoneticDiv.classList.add('phonetic');
     wordWrapper.append(phoneticDiv);
 }
 
-function renderPartOfSpeech(data) {
-    //noun-div
-    const nounDiv = document.querySelector('.part-of-speech');
-    nounDiv.innerHTML = "";
-    const paragraph = document.createElement('p');
-    paragraph.textContent = data[0].meanings[0].partOfSpeech;
-    nounDiv.append(paragraph);
 
+function renderMeanings(data) {
+    const meanings = data.meanings;
+
+    // Part of Speech
+    const partOfSpeechContainer = document.querySelector('.part-of-speech');
+    partOfSpeechContainer.textContent = "";
+
+    // Definitions
+    const definitionContainer = document.querySelector('.definition-container');
+    definitionContainer.innerHTML = "";
+
+    // Synonyms
+    const synonymContainer = document.querySelector('.synonyms');
+    synonymContainer.innerHTML = "";
+
+    if (meanings) {
+        meanings.forEach((meaning) => {
+            const partOfSpeech = meaning.partOfSpeech;
+            const definitions = meaning.definitions;
+            const synonyms = meaning.synonyms;
+
+
+            if (partOfSpeech) {
+                // Part of Speech
+                const partOfSpeechElement = document.createElement('div');
+                partOfSpeechElement.textContent = partOfSpeech;
+                partOfSpeechContainer.appendChild(partOfSpeechElement);
+            }
+
+            if (definitions) {
+                // Definitions
+                definitions.forEach(definition => {
+                    const definitionHTML = `<li>${definition.definition}</li>`;
+                    definitionContainer.innerHTML += definitionHTML;
+                });
+            }
+
+            if (synonyms) {
+                // Synonyms
+                synonyms.forEach(synonym => {
+                    const synonymHTML = `<li>${synonym}</li>`;
+                    synonymContainer.innerHTML += synonymHTML;
+                });
+
+            }
+        });
+    }
 }
 
-function renderDefinition() {
 
-}
 
-function renderSynonyms() {
+function renderSources(data) {
+    const source = data.sourceUrls;
 
-}
+    if (source) {
+        let sourceContainer = document.querySelector('.link');
+        sourceContainer.innerHTML = "";
 
-function renderExamples() {
-
-}
-
-function renderSources() {
-
+        source.forEach(source => {
+            const sourceHTML = `${source}`;
+            sourceContainer.innerHTML = sourceHTML;
+        });
+    }
 }
 
 
@@ -100,5 +138,9 @@ function renderSources() {
 // Main Function 
 function renderData(data) {
     renderWordContainer(data);
-    renderPartOfSpeech(data);
+    renderMeanings(data);
+    renderSources(data);
+
 }
+
+

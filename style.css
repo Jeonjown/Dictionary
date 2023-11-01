@@ -227,14 +227,24 @@ body{
 
   .synonyms-container{
     display: flex;
+    font-size: 1.2rem;
+    color: rgb(165, 164, 164);
    
   }
+
+  .synonyms-container p{
+    margin-right: 2em;
+    display: flex;
+    font-size: 1.2rem;
+    color: rgb(165, 164, 164);
+   
+  }
+
   .synonyms-container ul{
     display: flex;
     flex-direction: row;
     gap: 1.5em;
-    font-size: 1.2rem;
-    color: rgb(165, 164, 164);
+ 
   }
 
   .synonyms-container li{
