@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dictionary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -17,66 +18,174 @@
             </div>
             <div class="column-2">
                 <select id="select-font" name="select-font">
-                    <option value="serif">Serif</option>
-                    <option value="roboto">Roboto</option>
+                    <option value="serif" style="font-family: 'Times New Roman', Times, serif;">Serif</option>
+                    <option value="roboto" style="font-family: 'Roboto', sans-serif;">Roboto</option>
+                    <option value="cursive" style="font-family: 'cursive', sans-serif;">Cursive</option>
                   </select>
                   <div class="dark-mode">
-                      <label class="switch">
-                          <input type="checkbox">
-                          <span class="slider round"></span>
-                      </label>
-                      <div class="moon-icon">
-                          <i class="fa-regular fa-moon"></i>
-                      </div>
+                    <label class="switch">
+                      <input type="checkbox" id="dark-mode-toggle">
+                      <span class="slider round"></span>
+                    </label>
+                    <div class="moon-icon">
+                      <i class="fa-regular fa-moon"></i>
+                    </div>
                   </div>
             </div>         
         </div> 
 
-        <main class="main-content">
-            <div class="searchbar">
-                <input type="text" name="searchbar" id="searchbar">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            </div>
+       
+<main class="main-content">
+    <div class="searchbar">
+        <input type="text" name="searchbar" id="searchbar">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    </div>
 
-            <div class="word-container">
-                <div class="word-wrapper">
-                    <!-- <div class="word">keyboard</div> -->
-                    <!-- <div class="phonetic">/ˈkiːbɔːd/</div> -->
-                </div>
-                <div class="audio-icon">
-                    <i class="fa-solid fa-play"></i>
-                </div>      
-            </div>
+    <div class="word-container">
+        <div class="word-wrapper">
+            <!-- <div class="word">keyboard</div> -->
+            <!-- <div class="phonetic">/ˈkiːbɔːd/</div> -->
+        </div>
+        <div class="audio-icon">
+            <i class="fa-solid fa-play"></i>
+        </div>      
+    </div>
 
-           <div class="part-of-speech noun">
-                <!-- noun -->
-            </div> 
+    <!-- Sections for different parts of speech -->
+    <div class="part-of-speech noun hidden">
+        <h2>Noun</h2>
+        <div class="definition-container ">
+            <p>Meanings</p>
+            <ul class="meanings">
+                <!-- Meanings for nouns -->
+            </ul>
+        </div>
+        <div class="synonyms-container">
+            <p>Synonyms:</p>
+            <ul class="synonyms">
+                <!-- Synonyms for nouns -->
+            </ul>
+        </div>
+    </div>
+    <div class="part-of-speech adverb hidden">
+        <h2>Adverb</h2>
+        <div class "definition-container">
+            <p>Meanings</p>
+            <ul class="meanings">
+                <!-- Meanings for adverbs -->
+            </ul>
+        </div>
+        <div class="synonyms-container">
+            <p>Synonyms:</p>
+            <ul class="synonyms">
+                <!-- Synonyms for adverbs -->
+            </ul>
+        </div>
+    </div>
 
-            <div class="definition-container">
-                <ul> Meaning
-                  
-                </ul>
-            </div>
+    <div class="part-of-speech verb hidden">
+        <h2>Verb</h2>
+        <div class="definition-container">
+            <p>Meanings</p>
+            <ul class="meanings">
+                <!-- Meanings for verbs -->
+            </ul>
+        </div>
+        <div class="synonyms-container ">
+            <p>Synonyms:</p>
+            <ul class="synonyms">
+                <!-- Synonyms for verbs -->
+            </ul>
+        </div>
+    </div>
 
-            <div class="synonyms-container"> 
-                <p>Synonyms: </p>
-                <ul class="synonyms">
-                   
-                    <!-- <li>
-                        electronic keyboard
-                    </li> -->
-                </ul>
-                
-             </div>
+    <div class="part-of-speech adjective hidden">
+        <h2>Adjective</h2>
+        <div class="definition-container">
+            <p>Meanings</p>
+            <ul class="meanings">
+                <!-- Meanings for adjectives -->
+            </ul>
+        </div>
+        <div class="synonyms-container">
+            <p>Synonyms:</p>
+            <p>Meanings</p>
+            <ul class="synonyms">
+                <!-- Synonyms for adjectives -->
+            </ul>
+        </div>
+    </div>
 
+    <div class="part-of-speech pronoun hidden">
+        <h2>Pronoun</h2>
+        <div class="definition-container">
+            <p>Meanings</p>
+            <ul class="meanings">
+                <!-- Meanings for pronouns -->
+            </ul>
+        </div>
+        <div class="synonyms-container">
+            <p>Synonyms:</p>
+            <ul class="synonyms">
+                <!-- Synonyms for pronouns -->
+            </ul>
+        </div>
+    </div>
 
-          <div class="source">
-            <p>Source:</p>
-            <div class="link">
-                <!-- "https://en.wiktionary.org/wiki/keyboard" -->
-            </div>
-           </div> 
-        </main>
+    <div class="part-of-speech preposition hidden">
+        <h2>Preposition</h2>
+        <div class="definition-container">
+            <p>Meanings</p>
+            <ul class="meanings">
+                <!-- Meanings for prepositions -->
+            </ul>
+        </div>
+        <div class="synonyms-container">
+            <p>Synonyms:</p>
+            <ul class="synonyms">
+                <!-- Synonyms for prepositions -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="part-of-speech conjunction hidden">
+        <h2>Conjunction</h2>
+        <div class="definition-container">
+            <p>Meanings</p>
+            <ul class="meanings">
+                <!-- Meanings for conjunctions -->
+            </ul>
+        </div>
+        <div class="synonyms-container">
+            <p>Synonyms:</p>
+            <ul class="synonyms">
+                <!-- Synonyms for conjunctions -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="part-of-speech interjection hidden">
+        <h2>Interjection</h2>
+        <div class="definition-container">
+              <p>Meanings</p>
+            <ul class="meanings">
+                <!-- Meanings for interjections -->
+            </ul>
+        </div>
+        <div class="synonyms-container">
+            <p>Synonyms:</p>
+            <ul class="synonyms">
+                <!-- Synonyms for interjections -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="source hidden">
+        <p>Source:</p>
+        <div class="link">
+        </div>
+    </div>
+</main>
     </div>
 
     <script src="script.js"></script>

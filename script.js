@@ -71,52 +71,56 @@ function renderWordContainer(data) {
 function renderMeanings(data) {
     const meanings = data.meanings;
 
-    // Part of Speech
-    const partOfSpeechContainer = document.querySelector('.part-of-speech');
-    partOfSpeechContainer.textContent = "";
-
-    // Definitions
-    const definitionContainer = document.querySelector('.definition-container');
-    definitionContainer.innerHTML = "";
-
-    // Synonyms
-    const synonymContainer = document.querySelector('.synonyms');
-    synonymContainer.innerHTML = "";
-
     if (meanings) {
+        // Create an object to store meanings and synonyms by part of speech
+        const meaningsByPartOfSpeech = {};
+
         meanings.forEach((meaning) => {
             const partOfSpeech = meaning.partOfSpeech;
-            const definitions = meaning.definitions;
-            const synonyms = meaning.synonyms;
 
-
-            if (partOfSpeech) {
-                // Part of Speech
-                const partOfSpeechElement = document.createElement('div');
-                partOfSpeechElement.textContent = partOfSpeech;
-                partOfSpeechContainer.appendChild(partOfSpeechElement);
+            // Check if the partOfSpeech is not in the object, create an entry
+            if (!meaningsByPartOfSpeech[partOfSpeech]) {
+                meaningsByPartOfSpeech[partOfSpeech] = {
+                    meanings: [],
+                    synonyms: [],
+                };
             }
 
-            if (definitions) {
-                // Definitions
-                definitions.forEach(definition => {
-                    const definitionHTML = `<li>${definition.definition}</li>`;
-                    definitionContainer.innerHTML += definitionHTML;
-                });
+            // Add definitions and synonyms to the appropriate part of speech
+            if (meaning.definitions) {
+                meaningsByPartOfSpeech[partOfSpeech].meanings.push(...meaning.definitions);
             }
 
-            if (synonyms) {
-                // Synonyms
-                synonyms.forEach(synonym => {
-                    const synonymHTML = `<li>${synonym}</li>`;
-                    synonymContainer.innerHTML += synonymHTML;
-                });
-
+            if (meaning.synonyms) {
+                meaningsByPartOfSpeech[partOfSpeech].synonyms.push(...meaning.synonyms);
             }
         });
+
+        // Render the meanings and synonyms for each part of speech
+        for (const partOfSpeech in meaningsByPartOfSpeech) {
+            const partOfSpeechContainer = document.querySelector(`.${partOfSpeech}`);
+            if (partOfSpeechContainer) {
+                const meaningsList = partOfSpeechContainer.querySelector('.meanings');
+                const synonymsList = partOfSpeechContainer.querySelector('.synonyms');
+
+                // Clear the previous synonyms before rendering new ones
+                synonymsList.innerHTML = "";
+
+                // Render a maximum of 3 meanings for this part of speech
+                meaningsByPartOfSpeech[partOfSpeech].meanings.slice(0, 3).forEach((definition) => {
+                    const definitionHTML = `<li>${definition.definition}</li>`;
+                    meaningsList.innerHTML += definitionHTML;
+                });
+
+                // Render a maximum of 3 synonyms for this part of speech
+                meaningsByPartOfSpeech[partOfSpeech].synonyms.slice(0, 3).forEach((synonym) => {
+                    const synonymHTML = `<li>${synonym}</li>`;
+                    synonymsList.innerHTML += synonymHTML;
+                });
+            }
+        }
     }
 }
-
 
 
 function renderSources(data) {
@@ -139,8 +143,64 @@ function renderSources(data) {
 function renderData(data) {
     renderWordContainer(data);
     renderMeanings(data);
-    renderSources(data);
 
+    // Select the source container
+    const sourceContainer = document.querySelector('.source');
+
+    if (data.sourceUrls) {
+        // If there are source URLs, make the source container visible
+        sourceContainer.classList.remove('hidden');
+
+        // Render the source URLs
+        const sourceLinkContainer = sourceContainer.querySelector('.link');
+        sourceLinkContainer.innerHTML = "";
+
+        data.sourceUrls.forEach(source => {
+            const sourceHTML = `<a href="${source}" target="_blank">${source}</a>`;
+            sourceLinkContainer.innerHTML += sourceHTML;
+        });
+    } else {
+        // If there are no source URLs, hide the source container
+        sourceContainer.classList.add('hidden');
+    }
+
+    // Loop through part-of-speech elements and check if they have meanings
+    const partOfSpeechElements = document.querySelectorAll('.part-of-speech');
+    partOfSpeechElements.forEach((partOfSpeechElement) => {
+        const meaningsList = partOfSpeechElement.querySelector('.meanings');
+        if (meaningsList && meaningsList.children.length > 0) {
+            partOfSpeechElement.classList.remove('hidden');
+        }
+    });
 }
 
 
+//darkmode
+
+document.addEventListener('DOMContentLoaded', function () {
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    darkModeToggle.addEventListener('change', function () {
+        if (darkModeToggle.checked) {
+            body.classList.add('dark-mode-active');
+        } else {
+            body.classList.remove('dark-mode-active');
+        }
+    });
+});
+
+
+//font changer
+
+const selectFontElement = document.getElementById("select-font");
+selectFontElement.addEventListener('change', changeFont);
+
+function changeFont() {
+    // Get the selected font value
+    const select = document.getElementById("select-font");
+    const selectedFont = select.value;
+
+    // Set the font style for the entire HTML document
+    document.documentElement.style.fontFamily = selectedFont;
+}

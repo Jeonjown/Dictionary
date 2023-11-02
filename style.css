@@ -217,12 +217,16 @@ body{
 
   .definition-container li{
     font-size: 1rem;
-    color: black;
+    color: rgb(114, 113, 113);
     margin: 1em 2em;
   }
 
   .definition-container li::marker {
     color: #2196F3; 
+  }
+
+  .definition-container p{
+    color: rgb(165, 164, 164);
   }
 
   .synonyms-container{
@@ -270,8 +274,95 @@ body{
     margin-top: 3em;
     display: flex;
     color: rgb(165, 164, 164);
+    padding-bottom: 2em;
  }
+
+ .source a{
+  color: rgb(114, 113, 113);
+}
 
  .link {
     margin-left: .5em;
+    color: rgb(114, 113, 113);
  }
+
+.hidden{
+  display: none;
+}
+
+
+
+/* DARK MODE */
+
+/* Dark mode button checked styles */
+.dark-mode input:checked + .slider {
+  background-color: gray;
+}
+
+.dark-mode input:checked + .slider:before {
+  background-color: white;
+}
+
+.dark-mode input:checked + .slider .moon-icon {
+  color: white;
+}
+
+
+
+
+/* Dark mode styles for the entire page */
+.dark-mode-active {
+  background-color: #0C090B;
+  color: white;
+}
+
+
+.dark-mode-active li{
+  background-color: #0C090B;
+  color: white;
+}
+
+.dark-mode-active i {
+  color: #806064;
+}
+
+.dark-mode-active .audio-icon {
+  background-color: #212c25;
+}
+
+.dark-mode-active .searchbar {
+  background-color: #ede8eb;
+}
+
+.dark-mode-active #searchbar {
+  background-color: #ede8eb;
+}
+
+.dark-mode-active .search-icon {
+  background-color: #ede8eb;
+}
+
+.dark-mode-active .fa-moon {
+  color: yellowgreen;
+}
+
+.dark-mode-active #select-font{
+  background-color: #ede8eb;
+}
+
+
+
+/* font changer */
+
+  /* Define font families for the options */
+  body[data-font="serif"] {
+    font-family: "serif", sans-serif;
+  }
+
+  body[data-font="roboto"] {
+    font-family: "Roboto", sans-serif;
+  }
+
+  body[data-font="verdana"] {
+    font-family: "Verdana", sans-serif;
+  }
