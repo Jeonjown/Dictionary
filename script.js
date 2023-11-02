@@ -175,6 +175,47 @@ function renderData(data) {
 }
 
 
+//audio button
+
+// Add an event listener to the audio button and play the audio for the searched word
+const audioButton = document.querySelector('.audio-icon');
+
+audioButton.addEventListener('click', function () {
+    // Get the current word from the word wrapper
+    const wordElement = document.querySelector('.word');
+    const currentWord = wordElement.textContent;
+
+    // Fetch the API to get word data, including audio URL
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${currentWord}`)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to fetch data');
+            }
+        })
+        .then(data => {
+            // Extract the audio URL from the API response
+            const audioUrl = data[0].phonetics[0].audio;
+
+            // If there's an audio URL, create an audio element and play the audio
+            if (audioUrl) {
+                const audioElement = new Audio(audioUrl);
+                audioElement.play();
+            } else {
+                console.log('No audio available for this word.');
+            }
+        });
+});
+
+
+
+
+
+
+
+
+
 //darkmode
 
 document.addEventListener('DOMContentLoaded', function () {

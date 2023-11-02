@@ -190,6 +190,16 @@ body{
     width: 4em;
     padding: .5em;
   }
+  
+  .audio-icon:hover{
+    opacity: .9;
+    cursor: pointer;
+  }
+
+  .audio-icon:active{
+    opacity: .7;
+    cursor: pointer;
+  }
 
   .audio-icon i{
     margin-top: .25em;
@@ -289,6 +299,9 @@ body{
 .hidden{
   display: none;
 }
+
+
+
 
 
 
